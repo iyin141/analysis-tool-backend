@@ -242,7 +242,7 @@ npm run build      # type-check + production build
 
 **Configuration (`.env`):** `VITE_API_BASE_URL`, `VITE_DEFAULT_FROM_DATE`, `VITE_DEFAULT_TO_DATE`, `VITE_DEFAULT_CUTOFF_TIME`, `VITE_DEFAULT_DELIVERY_DATE`, `VITE_TIMEZONE`, `VITE_APP_NAME`.
 
-> **Port alignment.** The backend Dockerfile and compose file serve on **2847**, but `frontend/.env.example` and the Vite dev proxy point to **localhost:8000**. When running both locally, either start the backend with `--port 8000` or set `VITE_API_BASE_URL=http://localhost:2847/api/v1` (and update the proxy target in `vite.config.ts`).
+> **Port alignment.** The backend serves on **2847** and `.env.example` now points `VITE_API_BASE_URL` there. The Vite dev proxy in `vite.config.ts` still targets `localhost:8000`; it only matters if you use the relative `/api/v1` default instead of the env var.
 
 ---
 
